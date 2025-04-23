@@ -33,7 +33,9 @@ https://github.com/0987uyghjnm/DiceDecaySimulation
 -------------------------------------------------------------------------------
 DEPENDENCIES:
 -------------
-To run this program, you need Python and the matplotlib library. Easy peasy...
+To run this program, you need Python and the matplotlib library. Or better yet, 
+use the ready to run WINDOWS ONLY .exe application!! Choose the easy peasy, 
+route. It'll make your life easier!!
 
 RECOMMENDED SETUP OPTIONS:
 --------------------------
