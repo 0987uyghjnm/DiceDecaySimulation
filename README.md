@@ -1,3 +1,4 @@
+
 ===============================================================================
 RADIOACTIVE DICE DECAY SIMULATOR
 ===============================================================================
@@ -63,18 +64,16 @@ The simulator follows these core steps:
    - The program starts with 80 dice (representing 80 parent isotopes).
    - Dice are rolled.
    - Dice that meet the decay condition are removed.
-   - The remaining (parent) dice are rolled in the next round.
-   - This continues until no parent isotopes remain.
+   - The remaining dice are rolled again until no parent isotopes are left.
+   - For each trial, the percentage of parent isotopes remaining is recorded round-by-round.
 
-4. After all trials, a decay curve is plotted using matplotlib, showing the percentage
-   of parent isotopes remaining over time.
+4. After all trials, a decay curve is plotted using matplotlib:
+   - If ≤ 20 trials: all curves are plotted and labeled.
+   - If <21 trials: average, median, max, and min curves are shown along with 14 random trials.
 
-6. The graph is shown in a pop-up window. If you want to save it, use the
-   window's "Save As" feature. There is no automatic file saving.
+5. The graph is shown in a pop-up window. Use the window's "Save As" feature if you want to keep the plot.
 
-7. Once the user closes that pop-up window, the console window will prompt for the user
-   to contunue or end. If user chooses to contunue, awesome, go again. If not, program
-   exits.   
+6. When the user closes the plot window, they are asked if they want to run another experiment.
 
 -------------------------------------------------------------------------------
 PROGRAM FILE STRUCTURE (Summarized): 
@@ -84,8 +83,7 @@ PROGRAM FILE STRUCTURE (Summarized):
 ----------
     import random
     import matplotlib.pyplot as plt
-
-    These libraries power the dice rolls (random) and data visualization (matplotlib).
+    import numpy as np
 
 2. roll_dice(num_dice)
 ----------------------
@@ -95,9 +93,6 @@ PROGRAM FILE STRUCTURE (Summarized):
 -----------------------------
     Takes a dice value and a decay logic mode. Returns True if the dice represents
     a decayed isotope based on the selected logic.
-
-    Logic "1" → Even numbers decay.
-    Logic "2" → Only rolls of 6 decay.
 
 4. simulate_decay(trial_num, decay_logic)
 -----------------------------------------
@@ -109,24 +104,23 @@ PROGRAM FILE STRUCTURE (Summarized):
         * % of parents remaining (based on original 80)
         * % of daughters accumulated
         * Probability of decay this round
-
-    - Stores % parent remaining after each round for plotting.
-    - Ends when all dice have decayed.
+    - Returns a list of parent percentages per round.
 
 5. run_experiment()
 -------------------
-    - Main loop.
-    - Asks user to choose decay logic and number of trials.
-    - Runs the specified number of trials using simulate_decay().
-    - Plots decay curves using matplotlib.
-    - Offers to run another experiment or exit.
+    - Main driver of the program.
+    - Prompts user for logic and number of trials.
+    - Calls simulate_decay() for each trial.
+    - Handles graphing:
+        * ≤ 20 trials → show all curves
+        * 21–50 trials → show every 5th trial + average
+        * > 50 trials → show summary stats + 14 random trials
+    - Lets user repeat the simulation or exit.
 
 6. PROGRAM ENTRY POINT
 ----------------------
     if __name__ == "__main__":
         run_experiment()
-
-    This is what kicks everything off when the file is run directly.
 
 -------------------------------------------------------------------------------
 TERMINOLOGY EXPLAINED:
@@ -175,10 +169,6 @@ can modify it for your classroom:
     You can add a line inside `simulate_decay()` to write each round's data
     to a `.csv` file for analysis in Excel or Google Sheets.
 
-5. Save graphs automatically (optional):
-    Replace `plt.show()` with `plt.savefig(filename)` if you want graphs
-    to be saved without user interaction.
-
 -------------------------------------------------------------------------------
 TIPS FOR EDUCATORS:
 -------------------
@@ -191,5 +181,22 @@ TIPS FOR EDUCATORS:
   direct them to the included `.exe` file. It's a double-click solution
   that runs the full simulation without needing to install anything.
 
-===============================================================================
+-------------------------------------------------------------------------------
+ISSUES? BUGS? SUGGESTIONS?
+-------------------
 
+If you run into problems, have questions, or want to suggest improvements:
+
+1. Visit the GitHub Issues page:
+   https://github.com/0987uyghjnm/DiceDecaySimulation/issues
+
+2. Open a new issue and include:
+   - A short description of the problem or suggestion
+   - Any error messages (if applicable)
+   - The operating system you’re using
+   - Python version (if not using the .exe)
+ -The more detials the better (Helps me w/ diagnosing)!!
+
+I check the repo occasionally, since this isn’t a full-time project,  but I’ll do my best.
+
+===============================================================================
