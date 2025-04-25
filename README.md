@@ -1,5 +1,3 @@
-
-------------
 RADIOACTIVE DICE DECAY SIMULATOR
 ------------
 
@@ -27,28 +25,21 @@ If you find it helpful, I’d appreciate a shout‑out or link back to
 this repo, but it’s not required. Use at your own risk.
 _**More importantly have fun!!!**_
 
-Original Repo:
-https://github.com/0987uyghjnm/DiceDecaySimulation
-
 -------------------------------------------------------------------------------
-DEPENDENCIES:
--------------
-To run this program, you need Python and the matplotlib library. Or better yet, 
-use the ready to run WINDOWS ONLY .exe application!! Choose the easy peasy, 
-route. It'll make your life easier!!
-
 RECOMMENDED SETUP OPTIONS:
 --------------------------
 Option A: Run from Python (for tech-savvy users)
-    - Make sure Python is installed on your system.
-    - Install matplotlib by running: pip install matplotlib
-    - Then, run the program using: python DiceDecaySimulation.py
+ - Make sure Python is installed on your system.
+    - Install matplotlib by running:
+         ```pip install matplotlib```
+    - Then, run the program using:
+         ```python DiceDecaySimulation.py```
 
 Option B: Run the included .EXE (for Windows users)
-    - This program includes a pre-compiled .exe file for Windows users.
-    - Just double-click the .exe and the simulation will run in a command window.
-    - No Python setup, no command line required.
-    - The .exe works exactly like the script—it will prompt you for options and show you the decay chart at the end.
+ - This program includes a **pre-compiled .exe** file for Windows users.
+  - Just double-click the .exe and the simulation will run in a command window.
+  - No Python setup, no command line required. It just works out of the box!
+  - The .exe works exactly like the script!
 
 -------------------------------------------------------------------------------
 HOW IT WORKS:
@@ -60,25 +51,27 @@ The simulator follows these core steps:
    - Logic 2: Only the number 6 represents decay.
      (1–5 = Parent, 6 = Daughter)
 
-2. You specify how many trials you want to run.
+2. You specify how many trials you want to run. 
+
+***NOTE: The more trials the longer it'll take to run.***
 
 3. For each trial:
    - The program starts with 80 dice (representing 80 parent isotopes).
    - Dice are rolled.
    - Dice that meet the decay condition are removed.
-   - The remaining dice are rolled again until no parent isotopes are left.
+   - The remaining dice are rolled again until ***no parent isotopes are left***.
    - For each trial, the percentage of parent isotopes remaining is recorded round-by-round.
 
 4. After all trials, a decay curve is plotted using matplotlib:
-   - If ≤ 20 trials: all curves are plotted and labeled.
-   - If <21 trials: average, median, max, and min curves are shown along with 14 random trials.
+   - If trials are ≤ 20: all curves are plotted and labeled.
+   - If trials are > 21 trials: average, median, max, and min curves are shown along with 14 randomly chosen trials.
 
-5. The graph is shown in a pop-up window. Use the window's "Save As" feature if you want to keep the plot.
+5. The graph is shown in a pop-up window. Use the window's "Save As" feature if you want to keep an image copy of the graph.
 
-6. When the user closes the plot window, they are asked if they want to run another experiment.
+6. When the user closes the graph's window, they are asked if they want to run another experiment.
 
 -------------------------------------------------------------------------------
-PROGRAM FILE STRUCTURE (Summarized): 
+EXPLNATION OF PROGRAM LOGIC: 
 ------------------------------------
 
 1. IMPORTS
@@ -89,16 +82,16 @@ PROGRAM FILE STRUCTURE (Summarized):
 
 2. roll_dice(num_dice)
 ----------------------
-    Rolls a specified number of 6-sided dice and returns the list of results.
+   Rolls a specified number of 6-sided dice and returns the list of results.
 
 3. should_decay(value, logic)
 -----------------------------
-    Takes a dice value and a decay logic mode. Returns True if the dice represents
+  Takes a dice value and a decay logic mode. Returns True if the dice represents
     a decayed isotope based on the selected logic.
 
 4. simulate_decay(trial_num, decay_logic)
 -----------------------------------------
-    - Runs a full trial using the selected logic.
+   - Runs a full trial using the selected logic.
     - Prints a formatted table showing:
         * Number of dice rolled (Dice Left)
         * How many were parents (survived)
@@ -110,18 +103,17 @@ PROGRAM FILE STRUCTURE (Summarized):
 
 5. run_experiment()
 -------------------
-    - Main driver of the program.
+   - Main driver of the program.
     - Prompts user for logic and number of trials.
     - Calls simulate_decay() for each trial.
     - Handles graphing:
-        * ≤ 20 trials → show all curves
-        * 21–50 trials → show every 5th trial + average
-        * > 50 trials → show summary stats + 14 random trials
+        * trials **≤** 20 trials → show all curves
+        * trials **>** 50 trials → show summary stats + 14 random trials
     - Lets user repeat the simulation or exit.
 
 6. PROGRAM ENTRY POINT
 ----------------------
-    if __name__ == "__main__":
+	   if __name__ == "__main__":
         run_experiment()
 
 -------------------------------------------------------------------------------
@@ -167,10 +159,6 @@ can modify it for your classroom:
     - Average decay probability
     - Estimate of half-life (round when ~50% of dice remain)
 
-4. Auto-export results:
-    You can add a line inside `simulate_decay()` to write each round's data
-    to a `.csv` file for analysis in Excel or Google Sheets.
-
 -------------------------------------------------------------------------------
 TIPS FOR EDUCATORS:
 -------------------
@@ -199,6 +187,5 @@ If you run into problems, have questions, or want to suggest improvements:
    - Python version (if not using the .exe)
  -The more detials the better (Helps me w/ diagnosing)!!
 
-I check the repo occasionally, since this isn’t a full-time project,  but I’ll do my best.
-
-===============================================================================
+***I check the repo occasionally, since this isn’t a full-time project,  but I’ll do my best.***
+------------
