@@ -178,9 +178,12 @@ ISSUES? BUGS? SUGGESTIONS?
 If you run into problems, have questions, or want to suggest improvements:
 
 1. Visit the GitHub Issues page:
+(_PLEASE GO TO THIS HERE TO USE THE FOLLOWING TEMPLATE
+https://github.com/0987uyghjnm/DiceDecaySimulation/tree/main/.github/ISSUE_TEMPLATE_)
+
    https://github.com/0987uyghjnm/DiceDecaySimulation/issues
 
-2. Open a new issue and include:
+3. Open a new issue and include:
    - A short description of the problem or suggestion
    - Any error messages (if applicable)
    - The operating system you’re using
