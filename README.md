@@ -185,7 +185,7 @@ If you run into problems, have questions, or want to suggest improvements:
    - Any error messages (if applicable)
    - The operating system you’re using
    - Python version (if not using the .exe)
-   - The more detials the better (Helps me w/ diagnosing)!!
+   - The more details the better (Helps me w/ diagnosing)!!
 
 ***I check the repo occasionally, since this isn’t a full-time project,  but I’ll do my best.***
 ------------
